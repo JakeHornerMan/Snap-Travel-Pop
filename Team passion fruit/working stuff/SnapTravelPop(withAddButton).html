@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+	<script src='https://api.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css' rel='stylesheet' />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">SnapTravelPop</a>
+		<form class="form-inline my-2 my-lg-0">
+		  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+		  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		  <button onClick="function" type="submit">Add</button>
+		</form>
+	  </div>
+	</nav>
+
+	<div id='map' style='width: 2000px; height: 1000px;'></div>
+	<script>
+
+
+mapboxgl.accessToken = "pk.eyJ1IjoidGhpc2lzYXVzZXJuYW1lIiwiYSI6ImNrMHMzbjRhZDAyZnkzZHFteHN2aGFxZGQifQ.wfBa9G20zjzPvbNKBTfXEQ";
+
+/* Map: This represents the map on the page. */
+var map = new mapboxgl.Map({
+  container: "map",
+  style: "mapbox://styles/mapbox/outdoors-v11",
+  zoom: 7.78,
+  center: [-6.3595,53.2686]
+});
+
+map.on("load", function () {
+var lat = parseFloat(prompt("please enter latitude","Latitude"));
+var long = parseFloat(prompt("please enter Longitude","Longitude"));
+
+  /* Image: An image is loaded and added to the map. */
+  map.loadImage("https://i.imgur.com/MK4NUzI.png", function(error, image) {
+      if (error) throw error;
+      map.addImage("custom-marker", image);
+      /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
+      map.addLayer({
+        id: "markers",
+        type: "symbol",
+        /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+        source: {
+          type: "geojson",
+          data: {
+            type: 'FeatureCollection',
+            features: [
+              {
+                type: 'Feature',
+                properties: {},
+                geometry: {
+                  type: "Point",
+                  coordinates: [long, lat]
+                }
+              }
+            ]
+          }
+        },
+        layout: {
+          "icon-image": "custom-marker",
+        }
+      });
+    });
+});
+
+
+</script>
+
+</body>

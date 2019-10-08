@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<Title>Location</Title>
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css' rel='stylesheet' />
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class='sidebar pad2'>Listing</div>
+	<div id='map' class='map pad2'>Map</div>
+	<script>
+		mapboxgl.accessToken = 'pk.eyJ1IjoidGhpc2lzYXVzZXJuYW1lIiwiYSI6ImNrMHMzbjRhZDAyZnkzZHFteHN2aGFxZGQifQ.wfBa9G20zjzPvbNKBTfXEQ';
+		var map = new mapboxgl.Map({
+		// container id specified in the HTML
+		container: 'map',
+		// style URL
+		style: 'mapbox://styles/mapbox/light-v10',
+		// initial position in [lon, lat] format
+		center: [ -6.266155,53.350140],
+		// initial zoom
+		zoom: 12
+		})
+		
+		map.on('load', function(e) {
+		// Add the data to your map as a layer
+			map.addLayer({
+				id: 'locations',
+				type: 'symbol',
+		// Add a GeoJSON source containing place coordinates and information.
+		source: {
+			type: 'geojson',
+			data: stores
+		},
+		layout: {
+			'icon-image': 'restaurant-15',
+			'icon-allow-overlap': true,
+    }
+  });
+});
+	</script>
+</body>
+</html>
