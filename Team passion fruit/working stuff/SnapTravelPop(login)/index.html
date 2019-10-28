@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+	<head>
+		<title>SnapTravelPop</title>
+		<link rel="stylesheet" href="style.css"/>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div class="container" > 
+			<div class="top">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="logo"> <img src="logo3.png" alt="logo"/> </div>
+					</div>
+					<div class="col-sm-8">
+						<div class="topN">
+							<div class="login">
+								<h2>Sign In:</h2>
+								<form class="form-inline" action="log.php" method="post">
+								<label for="username">Username:</label>
+								<input type="text" name="username" class="form-control" id="username">
+								<label for="pwd">Password:</label>
+								<input type="password" name="password" class="form-control" id="pwd">
+								<button type="submit" class="btn btn-primary">Submit</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bottom">
+				<div class="row">
+					<div class="col-sm-6">
+					<div class="bottomLeft">
+					<div class="text-center">
+						<br><br><br><br>
+						<div class="mapPic"> <img src="Map.png" alt="map"/> </div>
+						<div class="createAcc">
+						<h4>Document Your Travels!</h4>
+						</div>
+					</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<div class="bottomRight">
+						<br><br><br>
+						<div class="text-center">
+						<h1>Create Account:</h1>
+						
+							<div class="createAcc">
+								<form class="form-inline" action="/action_page.php">
+								<label for="username">Username:</label><br>
+								<input type="username" class="form-control" id="username"><br><br>
+								<label for="email">Email:</label><br>
+								<input type="email" class="form-control" id="email"><br><br>
+								<label for="pwd">Password:</label><br>
+								<input type="password" class="form-control" id="pwd"><br><br>
+								<button type="submit" class="btn btn-primary">Submit</button><br>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>	
+			</div>
+			</div>
+	</body>
+</html>
