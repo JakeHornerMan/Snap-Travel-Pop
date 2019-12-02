@@ -1,0 +1,32 @@
+var geoJson = {
+  type: "FeatureCollection",
+  features: [{
+      type: "Feature",
+      "geometry": { "type": "Point", "coordinates": [-76.03, 38.90]},
+      "properties": {
+          "title": "Online Image",
+          "marker-color": "#3c4e5a",
+          "marker-symbol": "marker",
+          "marker-size": "large",
+
+          // Store the image url and caption in an array.
+          "images": [
+            ["http://www.dumpaday.com/wp-content/uploads/2018/09/photos-21-3.jpg","This image is an online image"],
+
+          ]
+      }
+  }, {
+      type: "Feature",
+      "geometry": { "type": "Point", "coordinates": [-74.00, 40.71]},
+      "properties": {
+          "title": "Offline Image",
+          "marker-color": "#3c4e5a",
+          "marker-symbol": "marker",
+          "marker-size": "large",
+          "images": [
+            ["1234.jpg","This image is offline and is stored locally"],
+          ]
+
+      }
+  }]
+};
